@@ -1,0 +1,1770 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+    <title>عيادة الأسنان - د. زهراء رضا</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', 'Segoe UI', sans-serif;
+            background: linear-gradient(145deg, #e8edf2 0%, #c8d8e5 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            margin: 0;
+            position: relative;
+        }
+
+        /* خلفية متحركة */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(ellipse at 30% 20%, rgba(59, 139, 160, 0.05) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 80%, rgba(255, 215, 180, 0.04) 0%, transparent 50%);
+            animation: floatBg 20s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        @keyframes floatBg {
+            0%,
+            100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            33% {
+                transform: translate(2%, -2%) rotate(1deg);
+            }
+            66% {
+                transform: translate(-1%, 1%) rotate(-1deg);
+            }
+        }
+
+        /* ===== الحاوية الرئيسية ===== */
+        .app-card {
+            width: 100%;
+            max-width: 500px;
+            background: rgba(255, 255, 255, 0.78);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border-radius: 56px 56px 36px 36px;
+            box-shadow: 0 40px 80px rgba(0, 30, 40, 0.20), 0 15px 35px rgba(0, 20, 30, 0.10);
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            padding-bottom: 100px;
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+
+        /* ===== رأس العيادة - متطور ===== */
+        .clinic-header {
+            background: linear-gradient(145deg, #1a3a4a 0%, #0d2532 100%);
+            padding: 32px 24px 24px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .clinic-header::before {
+            content: '';
+            position: absolute;
+            top: -40%;
+            right: -20%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255, 215, 180, 0.06) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: glowPulse 8s ease-in-out infinite;
+        }
+
+        .clinic-header::after {
+            content: '';
+            position: absolute;
+            bottom: -40%;
+            left: -20%;
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(100, 200, 255, 0.04) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: glowPulse 8s ease-in-out infinite reverse;
+        }
+
+        @keyframes glowPulse {
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.6;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 1;
+            }
+        }
+
+        .clinic-header .logo-wrapper {
+            position: relative;
+            z-index: 1;
+            display: inline-block;
+        }
+
+        .clinic-header .logo-icon {
+            font-size: 42px;
+            color: #ffd9b0;
+            background: rgba(255, 255, 255, 0.06);
+            width: 80px;
+            height: 80px;
+            border-radius: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 12px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(4px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .clinic-header .logo-icon:hover {
+            transform: scale(1.05) rotate(-5deg);
+        }
+
+        .clinic-header h1 {
+            font-size: 28px;
+            font-weight: 800;
+            color: #ffffff;
+            text-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+            letter-spacing: 0.5px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .clinic-header .doctor-name {
+            display: inline-block;
+            margin-top: 10px;
+            background: rgba(255, 215, 180, 0.08);
+            backdrop-filter: blur(4px);
+            padding: 10px 36px;
+            border-radius: 60px;
+            font-size: 18px;
+            font-weight: 600;
+            color: #fae3d0;
+            border: 1px solid rgba(255, 215, 180, 0.06);
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+
+        .clinic-header .doctor-name:hover {
+            background: rgba(255, 215, 180, 0.12);
+            transform: translateY(-2px);
+        }
+
+        .clinic-header .doctor-name i {
+            margin-left: 10px;
+            color: #ffd9b0;
+        }
+
+        .user-badge {
+            background: rgba(255, 215, 180, 0.08);
+            padding: 8px 22px;
+            border-radius: 40px;
+            font-size: 14px;
+            color: #fae3d0;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid rgba(255, 215, 180, 0.05);
+            margin-top: 12px;
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+
+        .user-badge:hover {
+            background: rgba(255, 215, 180, 0.12);
+        }
+
+        .user-badge i {
+            color: #ffd9b0;
+        }
+
+        /* ===== الأقسام ===== */
+        .page-section {
+            display: none;
+            padding: 24px 20px 20px;
+            animation: fadeSlideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .page-section.active {
+            display: block;
+        }
+
+        @keyframes fadeSlideUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px) scale(0.97);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* ===== صفحة تسجيل الدخول ===== */
+        #loginPage {
+            padding: 32px 22px 40px;
+            background: transparent;
+        }
+
+        .login-box {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(16px);
+            border-radius: 44px;
+            padding: 38px 28px 34px;
+            box-shadow: 0 15px 50px rgba(0, 20, 30, 0.10);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            transition: all 0.3s ease;
+        }
+
+        .login-box:hover {
+            box-shadow: 0 20px 60px rgba(0, 20, 30, 0.12);
+        }
+
+        .login-box h2 {
+            font-size: 26px;
+            font-weight: 800;
+            color: #1a3b4e;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 6px;
+        }
+
+        .login-box h2 i {
+            color: #3b8ba0;
+            font-size: 30px;
+        }
+
+        .login-sub {
+            color: #4d6f82;
+            font-size: 14px;
+            margin-bottom: 28px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+            padding-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .input-group {
+            margin-bottom: 22px;
+            position: relative;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: #1a3b4e;
+            margin-bottom: 8px;
+        }
+
+        .input-group i {
+            position: absolute;
+            left: 18px;
+            top: 46px;
+            color: #799faf;
+            font-size: 20px;
+            transition: 0.3s;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 16px 20px 16px 54px;
+            border: 2px solid rgba(0, 0, 0, 0.04);
+            border-radius: 60px;
+            font-size: 16px;
+            background: rgba(255, 255, 255, 0.6);
+            transition: 0.3s ease;
+            outline: none;
+            font-weight: 500;
+            color: #15313f;
+        }
+
+        .input-group input:focus {
+            border-color: #3b8ba0;
+            background: white;
+            box-shadow: 0 0 0 8px rgba(59, 139, 160, 0.06);
+            transform: translateY(-2px);
+        }
+
+        .input-group input:focus+i {
+            color: #3b8ba0;
+        }
+
+        .login-btn {
+            width: 100%;
+            background: linear-gradient(145deg, #1e4e64, #0f3343);
+            color: white;
+            border: none;
+            padding: 18px;
+            border-radius: 60px;
+            font-size: 19px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+            box-shadow: 0 12px 35px rgba(26, 59, 78, 0.22);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 14px;
+            letter-spacing: 0.3px;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 18px 45px rgba(18, 58, 75, 0.28);
+        }
+
+        .login-btn:active {
+            transform: scale(0.97);
+        }
+
+        .login-error {
+            background: rgba(255, 235, 235, 0.9);
+            color: #b13e3e;
+            padding: 14px 18px;
+            border-radius: 60px;
+            font-size: 14px;
+            margin-top: 18px;
+            text-align: center;
+            display: none;
+            border: 1px solid rgba(255, 200, 200, 0.4);
+            font-weight: 500;
+            backdrop-filter: blur(4px);
+        }
+
+        .login-success {
+            background: rgba(200, 240, 210, 0.9);
+            color: #1a6e3a;
+            padding: 14px 18px;
+            border-radius: 60px;
+            font-size: 14px;
+            margin-top: 18px;
+            text-align: center;
+            display: none;
+            border: 1px solid rgba(100, 200, 100, 0.3);
+            font-weight: 500;
+            backdrop-filter: blur(4px);
+        }
+
+        .info-note {
+            background: rgba(59, 139, 160, 0.04);
+            border-radius: 40px;
+            padding: 12px 18px;
+            font-size: 13px;
+            color: #1d5065;
+            border: 1px solid rgba(59, 139, 160, 0.04);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 18px;
+        }
+
+        .info-note i {
+            color: #3b8ba0;
+        }
+
+        /* ===== عناوين الأقسام ===== */
+        .section-title {
+            font-size: 22px;
+            font-weight: 800;
+            color: #0d2c3b;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 22px;
+            padding-right: 16px;
+            border-right: 6px solid #3b8ba0;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            right: 0;
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(90deg, #3b8ba0, transparent);
+            border-radius: 2px;
+        }
+
+        .section-title i {
+            color: #2c7a94;
+            font-size: 26px;
+        }
+
+        /* ===== البطاقات ===== */
+        .card-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .card-item {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(8px);
+            border-radius: 28px;
+            padding: 18px 20px;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            box-shadow: 0 4px 20px rgba(0, 20, 30, 0.04);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .card-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 35px rgba(0, 20, 30, 0.08);
+            border-color: rgba(59, 139, 160, 0.15);
+        }
+
+        .card-item .icon-wrapper {
+            width: 52px;
+            height: 52px;
+            background: rgba(59, 139, 160, 0.08);
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 28px;
+            color: #1f5b72;
+            transition: all 0.3s ease;
+        }
+
+        .card-item:hover .icon-wrapper {
+            background: rgba(59, 139, 160, 0.14);
+            transform: scale(1.05);
+        }
+
+        .card-item .info {
+            flex: 1;
+        }
+
+        .card-item .info h4 {
+            font-size: 17px;
+            font-weight: 700;
+            color: #0d2c3b;
+        }
+
+        .card-item .info p {
+            color: #3d6377;
+            font-size: 13px;
+            font-weight: 400;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .card-item .info .phone-number {
+            color: #2c7a94;
+            font-weight: 600;
+            font-size: 13px;
+            background: rgba(59, 139, 160, 0.06);
+            padding: 2px 12px;
+            border-radius: 40px;
+        }
+
+        .badge-date {
+            background: rgba(59, 139, 160, 0.08);
+            padding: 6px 18px;
+            border-radius: 40px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #124257;
+            border: 1px solid rgba(59, 139, 160, 0.06);
+            white-space: nowrap;
+            transition: all 0.3s ease;
+        }
+
+        .card-item:hover .badge-date {
+            background: rgba(59, 139, 160, 0.14);
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 8px;
+            flex-shrink: 0;
+        }
+
+        .btn-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+            background: rgba(0, 0, 0, 0.03);
+            color: #2d5a6e;
+        }
+
+        .btn-icon:hover {
+            transform: scale(1.12);
+        }
+
+        .btn-icon:active {
+            transform: scale(0.92);
+        }
+
+        .btn-icon.edit {
+            background: rgba(59, 139, 160, 0.08);
+            color: #2c7a94;
+        }
+
+        .btn-icon.edit:hover {
+            background: rgba(59, 139, 160, 0.18);
+            box-shadow: 0 4px 12px rgba(59, 139, 160, 0.15);
+        }
+
+        .btn-icon.delete {
+            background: rgba(200, 60, 60, 0.06);
+            color: #b13e3e;
+        }
+
+        .btn-icon.delete:hover {
+            background: rgba(200, 60, 60, 0.16);
+            box-shadow: 0 4px 12px rgba(200, 60, 60, 0.12);
+        }
+
+        /* ===== الأزرار ===== */
+        .btn-primary {
+            background: linear-gradient(145deg, #1e4e64, #123a4b);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 60px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            font-size: 14px;
+            box-shadow: 0 6px 24px rgba(26, 59, 78, 0.12);
+            font-family: 'Cairo', sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.5s ease;
+        }
+
+        .btn-primary:hover::after {
+            width: 200px;
+            height: 200px;
+        }
+
+        .btn-primary i {
+            background: transparent;
+            width: auto;
+            height: auto;
+            color: white;
+            font-size: 16px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(18, 58, 75, 0.22);
+        }
+
+        .btn-primary:active {
+            transform: scale(0.96);
+        }
+
+        .btn-success {
+            background: linear-gradient(145deg, #1e7e5e, #0f5a42);
+        }
+
+        .btn-danger {
+            background: linear-gradient(145deg, #b13e3e, #8a2a2a);
+        }
+
+        .btn-sm {
+            padding: 8px 18px;
+            font-size: 13px;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #1e4e64;
+            color: #1e4e64;
+            box-shadow: none;
+        }
+
+        .btn-outline i {
+            color: #1e4e64;
+        }
+
+        .btn-outline:hover {
+            background: #1e4e64;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline:hover i {
+            color: white;
+        }
+
+        /* ===== المصروفات ===== */
+        .expense-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 14px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+            font-weight: 500;
+            color: #15313f;
+            transition: all 0.2s ease;
+        }
+
+        .expense-row:hover {
+            background: rgba(59, 139, 160, 0.02);
+            padding-right: 8px;
+            border-radius: 12px;
+        }
+
+        .expense-row span:first-child i {
+            margin-left: 12px;
+            width: 30px;
+            color: #3b8ba0;
+            background: transparent;
+            font-size: 18px;
+        }
+
+        .expense-row span:last-child {
+            font-weight: 700;
+            color: #0d2c3b;
+        }
+
+        .expense-total {
+            border-bottom: none;
+            font-size: 18px;
+            padding-top: 16px;
+            margin-top: 4px;
+            border-top: 2px dashed rgba(59, 139, 160, 0.12);
+        }
+
+        /* ===== النوافذ المنبثقة ===== */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.30);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 999;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            animation: fadeInOverlay 0.35s ease;
+        }
+
+        @keyframes fadeInOverlay {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .modal-overlay.show {
+            display: flex;
+        }
+
+        .modal-box {
+            background: white;
+            border-radius: 44px;
+            padding: 34px 28px;
+            max-width: 420px;
+            width: 100%;
+            box-shadow: 0 50px 100px rgba(0, 0, 0, 0.15);
+            animation: slideUpModal 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes slideUpModal {
+            0% {
+                opacity: 0;
+                transform: translateY(40px) scale(0.95);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .modal-box h3 {
+            font-size: 22px;
+            font-weight: 700;
+            color: #0d2c3b;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .modal-box h3 i {
+            color: #3b8ba0;
+            font-size: 26px;
+        }
+
+        .modal-box input {
+            width: 100%;
+            padding: 16px 20px;
+            border: 2px solid rgba(0, 0, 0, 0.04);
+            border-radius: 60px;
+            font-size: 15px;
+            margin-bottom: 16px;
+            background: #f8fbfd;
+            outline: none;
+            font-family: 'Cairo', sans-serif;
+            transition: all 0.25s ease;
+        }
+
+        .modal-box input:focus {
+            border-color: #3b8ba0;
+            background: white;
+            box-shadow: 0 0 0 8px rgba(59, 139, 160, 0.06);
+            transform: translateY(-2px);
+        }
+
+        .modal-box .btn-row {
+            display: flex;
+            gap: 14px;
+            margin-top: 10px;
+        }
+
+        .modal-box .btn-row button {
+            flex: 1;
+            padding: 16px;
+            border-radius: 60px;
+            border: none;
+            font-weight: 700;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .modal-box .btn-row .btn-cancel {
+            background: #eef3f7;
+            color: #2d5a6e;
+        }
+
+        .modal-box .btn-row .btn-cancel:hover {
+            background: #dce6ed;
+            transform: translateY(-2px);
+        }
+
+        .modal-box .btn-row .btn-confirm {
+            background: linear-gradient(145deg, #1e4e64, #123a4b);
+            color: white;
+        }
+
+        .modal-box .btn-row .btn-confirm:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(18, 58, 75, 0.20);
+        }
+
+        /* ===== القائمة السفلية ===== */
+        .bottom-nav {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 40px);
+            max-width: 440px;
+            background: rgba(255, 255, 255, 0.82);
+            backdrop-filter: blur(32px);
+            -webkit-backdrop-filter: blur(32px);
+            border-radius: 80px;
+            box-shadow: 0 16px 55px rgba(0, 20, 30, 0.15);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 8px 10px;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            z-index: 100;
+            gap: 4px;
+        }
+
+        .bottom-nav button {
+            background: transparent;
+            border: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 14px;
+            border-radius: 60px;
+            font-size: 12px;
+            color: #3f6a80;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: pointer;
+            font-weight: 600;
+            gap: 2px;
+            min-width: 52px;
+            font-family: 'Cairo', sans-serif;
+            position: relative;
+        }
+
+        .bottom-nav button i {
+            font-size: 24px;
+            transition: 0.3s;
+            color: #4a748b;
+        }
+
+        .bottom-nav button.active-nav {
+            background: linear-gradient(145deg, #1a3b4e, #0f2a38);
+            color: white;
+            padding: 8px 20px;
+            box-shadow: 0 10px 35px rgba(26, 59, 78, 0.20);
+        }
+
+        .bottom-nav button.active-nav i {
+            color: white;
+        }
+
+        .bottom-nav button:not(.active-nav):hover {
+            transform: translateY(-3px);
+            background: rgba(26, 59, 78, 0.04);
+        }
+
+        .bottom-nav .logout-btn {
+            background: rgba(0, 0, 0, 0.03);
+            border-radius: 60px;
+            padding: 8px 16px;
+            color: #2e5b71;
+            font-weight: 700;
+            display: flex;
+            flex-direction: row;
+            gap: 8px;
+            font-size: 13px;
+            min-width: auto;
+        }
+
+        .bottom-nav .logout-btn i {
+            font-size: 18px;
+            margin-bottom: 0;
+        }
+
+        .bottom-nav .logout-btn:hover {
+            background: rgba(200, 70, 70, 0.08);
+            color: #a13d3d;
+            transform: translateY(-2px);
+        }
+
+        /* ===== حالات فارغة ===== */
+        .empty-state {
+            text-align: center;
+            padding: 35px 0;
+            color: #5b7b8a;
+        }
+
+        .empty-state i {
+            font-size: 56px;
+            color: #b0ccdb;
+            margin-bottom: 14px;
+            display: block;
+        }
+
+        .empty-state p {
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .empty-state .sub {
+            font-size: 13px;
+            color: #7a9aad;
+            margin-top: 4px;
+        }
+
+        /* ===== مربع الإضافة السريع ===== */
+        .quick-add-box {
+            background: linear-gradient(145deg, rgba(59, 139, 160, 0.03), rgba(59, 139, 160, 0.01));
+            border: 2px dashed rgba(59, 139, 160, 0.10);
+            border-radius: 28px;
+            padding: 18px 20px;
+            margin-bottom: 18px;
+            display: flex;
+            gap: 14px;
+            align-items: center;
+            flex-wrap: wrap;
+            transition: all 0.3s ease;
+        }
+
+        .quick-add-box:hover {
+            border-color: rgba(59, 139, 160, 0.20);
+            background: rgba(59, 139, 160, 0.02);
+        }
+
+        .quick-add-box input {
+            flex: 1;
+            padding: 14px 20px;
+            border: 2px solid rgba(0, 0, 0, 0.04);
+            border-radius: 60px;
+            font-size: 15px;
+            background: white;
+            outline: none;
+            font-family: 'Cairo', sans-serif;
+            min-width: 120px;
+            transition: all 0.25s ease;
+        }
+
+        .quick-add-box input:focus {
+            border-color: #3b8ba0;
+            box-shadow: 0 0 0 8px rgba(59, 139, 160, 0.06);
+            transform: translateY(-2px);
+        }
+
+        .quick-add-box .btn-primary {
+            white-space: nowrap;
+        }
+
+        .highlight-box {
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(4px);
+            border-radius: 28px;
+            padding: 18px 22px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .flex-between {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* ===== استجابة ===== */
+        @media (max-width: 480px) {
+            .app-card {
+                border-radius: 40px 40px 32px 32px;
+                padding-bottom: 90px;
+            }
+
+            .bottom-nav {
+                padding: 6px 8px;
+                bottom: 16px;
+                width: calc(100% - 32px);
+            }
+
+            .bottom-nav button {
+                min-width: 40px;
+                font-size: 10px;
+                padding: 6px 10px;
+            }
+
+            .bottom-nav button i {
+                font-size: 20px;
+            }
+
+            .bottom-nav button.active-nav {
+                padding: 6px 14px;
+            }
+
+            .clinic-header h1 {
+                font-size: 22px;
+            }
+
+            .clinic-header .logo-icon {
+                width: 64px;
+                height: 64px;
+                font-size: 34px;
+            }
+
+            .login-box {
+                padding: 26px 18px;
+            }
+
+            .modal-box {
+                padding: 26px 18px;
+                border-radius: 36px;
+            }
+
+            .card-item {
+                padding: 14px 16px;
+                flex-wrap: wrap;
+                gap: 12px;
+            }
+
+            .card-item .icon-wrapper {
+                width: 44px;
+                height: 44px;
+                font-size: 22px;
+            }
+
+            .quick-add-box {
+                flex-direction: column;
+                padding: 14px 16px;
+            }
+
+            .quick-add-box input {
+                width: 100%;
+            }
+
+            .section-title {
+                font-size: 19px;
+            }
+        }
+
+        /* شريط التمرير المخصص */
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(59, 139, 160, 0.2);
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(59, 139, 160, 0.3);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app-card" id="app">
+
+        <!-- ===== رأس العيادة ===== -->
+        <div class="clinic-header">
+            <div class="logo-wrapper">
+                <div class="logo-icon"><i class="fas fa-tooth"></i></div>
+            </div>
+            <h1>عيادة الأسنان</h1>
+            <div class="doctor-name"><i class="fas fa-user-md"></i> د. زهراء رضا</div>
+            <div style="margin-top: 10px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+                <span class="user-badge" id="currentUserBadge" style="display:none;">
+                    <i class="fas fa-user-circle"></i> <span id="currentUserName">المدير</span>
+                </span>
+            </div>
+        </div>
+
+        <!-- ===== صفحة تسجيل الدخول ===== -->
+        <div id="loginPage" class="page-section active">
+            <div class="login-box">
+                <h2><i class="fas fa-lock"></i> تسجيل الدخول</h2>
+                <div class="login-sub"><i class="fas fa-shield-alt"></i> أدخل بياناتك للدخول إلى النظام</div>
+                <div class="input-group">
+                    <label><i class="fas fa-user"></i> اسم المستخدم</label>
+                    <input type="text" id="usernameInput" placeholder="أدخل اسم المستخدم" />
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <div class="input-group">
+                    <label><i class="fas fa-key"></i> كلمة المرور</label>
+                    <input type="password" id="passwordInput" placeholder="••••••" />
+                    <i class="fas fa-lock"></i>
+                </div>
+                <button class="login-btn" id="loginBtn"><i class="fas fa-sign-in-alt"></i> دخول</button>
+                <div class="login-error" id="loginError"><i class="fas fa-exclamation-circle"></i> اسم المستخدم أو كلمة المرور غير صحيحة</div>
+                <div class="login-success" id="loginSuccess"><i class="fas fa-check-circle"></i> تم تسجيل الدخول بنجاح!</div>
+                <div style="margin-top: 18px; display: flex; gap: 12px; flex-wrap: wrap;">
+                    <button class="btn-primary btn-sm btn-outline" id="showRegisterBtn" style="flex:1;"><i class="fas fa-user-plus"></i> مستخدم جديد</button>
+                    <button class="btn-primary btn-sm btn-outline" id="showChangePassBtn" style="flex:1;"><i class="fas fa-key"></i> تغيير كلمة المرور</button>
+                </div>
+                <div class="info-note">
+                    <i class="fas fa-info-circle"></i> المستخدم الافتراضي: <strong>admin</strong> / كلمة المرور: <strong>admin123</strong>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== لوحة التحكم ===== -->
+        <div id="dashboardPage" class="page-section">
+
+            <!-- ===== قسم إضافة موعد ===== -->
+            <div id="sectionAppointment" class="page-section active">
+                <div class="section-title"><i class="fas fa-plus-circle"></i> إضافة موعد</div>
+
+                <div class="quick-add-box">
+                    <i class="fas fa-user-plus" style="font-size:26px; color:#3b8ba0;"></i>
+                    <input type="text" id="quickPatientName" placeholder="✏️ اكتب اسم المريض هنا..." />
+                    <button class="btn-primary" id="quickAddPatientBtn"><i class="fas fa-save"></i> إضافة</button>
+                </div>
+
+                <div class="card-grid">
+                    <div class="card-item" style="background: rgba(255,255,255,0.7);">
+                        <div class="icon-wrapper"><i class="fas fa-calendar-plus"></i></div>
+                        <div class="info">
+                            <h4>موعد جديد</h4>
+                            <p>أضف موعداً لمريض جديد أو موجود</p>
+                        </div>
+                        <button class="btn-primary" id="openAppointmentModal"><i class="fas fa-plus"></i> موعد</button>
+                    </div>
+                    <div class="highlight-box">
+                        <p style="color: #124257; font-weight: 500;">
+                            <i class="fas fa-clock" style="margin-left: 10px; color:#3b8ba0;"></i>
+                            آخر موعد: <span id="lastAppointmentDisplay" style="font-weight:700;">لا يوجد</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== قسم المواعيد ===== -->
+            <div id="sectionAppointments" class="page-section">
+                <div class="section-title"><i class="fas fa-calendar-check"></i> المواعيد</div>
+                <div class="card-grid" id="appointmentsList"></div>
+            </div>
+
+            <!-- ===== قسم المراجعين ===== -->
+            <div id="sectionPatients" class="page-section">
+                <div class="section-title"><i class="fas fa-user-friends"></i> المراجعين</div>
+
+                <div class="quick-add-box">
+                    <i class="fas fa-user-plus" style="font-size:26px; color:#3b8ba0;"></i>
+                    <input type="text" id="quickPatientName2" placeholder="✏️ اسم المريض" style="flex:1.2;" />
+                    <input type="text" id="quickPatientPhone" placeholder="📱 رقم الهاتف" style="flex:1;" />
+                    <button class="btn-primary btn-sm" id="quickAddPatientBtn2"><i class="fas fa-save"></i> إضافة</button>
+                </div>
+
+                <div class="card-grid" id="patientsList"></div>
+            </div>
+
+            <!-- ===== قسم المصروفات ===== -->
+            <div id="sectionExpenses" class="page-section">
+                <div class="section-title"><i class="fas fa-coins"></i> المصروفات</div>
+                <div style="display:flex; gap:12px; margin-bottom:18px; flex-wrap:wrap;">
+                    <button class="btn-primary btn-sm" id="openExpenseModal"><i class="fas fa-plus-circle"></i> إضافة مصروف</button>
+                </div>
+                <div id="expensesList" class="highlight-box"></div>
+            </div>
+        </div>
+
+        <!-- ===== القائمة السفلية ===== -->
+        <div class="bottom-nav" id="bottomNav" style="display: none;">
+            <button class="active-nav" data-section="sectionAppointment"><i class="fas fa-plus-circle"></i> إضافة</button>
+            <button data-section="sectionAppointments"><i class="fas fa-calendar-alt"></i> المواعيد</button>
+            <button data-section="sectionPatients"><i class="fas fa-user-friends"></i> المرضى</button>
+            <button data-section="sectionExpenses"><i class="fas fa-coins"></i> المصروفات</button>
+            <button id="logoutNavBtn" class="logout-btn"><i class="fas fa-sign-out-alt"></i> خروج</button>
+        </div>
+
+        <!-- ===== النوافذ المنبثقة ===== -->
+
+        <!-- نافذة إضافة مراجع -->
+        <div class="modal-overlay" id="patientModal">
+            <div class="modal-box">
+                <h3><i class="fas fa-user-plus"></i> إضافة مراجع جديد</h3>
+                <input type="text" id="patientNameInput" placeholder="👤 الاسم الكامل" />
+                <input type="text" id="patientPhoneInput" placeholder="📱 رقم الهاتف" />
+                <input type="text" id="patientAgeInput" placeholder="🎂 العمر" />
+                <div class="btn-row">
+                    <button class="btn-cancel" onclick="closeModal('patientModal')">إلغاء</button>
+                    <button class="btn-confirm" id="savePatientBtn">حفظ</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- نافذة تعديل مراجع -->
+        <div class="modal-overlay" id="editPatientModal">
+            <div class="modal-box">
+                <h3><i class="fas fa-edit"></i> تعديل بيانات المريض</h3>
+                <input type="hidden" id="editPatientIndex" />
+                <input type="text" id="editPatientName" placeholder="👤 الاسم الكامل" />
+                <input type="text" id="editPatientPhone" placeholder="📱 رقم الهاتف" />
+                <input type="text" id="editPatientAge" placeholder="🎂 العمر" />
+                <div class="btn-row">
+                    <button class="btn-cancel" onclick="closeModal('editPatientModal')">إلغاء</button>
+                    <button class="btn-confirm" id="saveEditPatientBtn">تحديث</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- نافذة إضافة موعد -->
+        <div class="modal-overlay" id="appointmentModal">
+            <div class="modal-box">
+                <h3><i class="fas fa-calendar-plus"></i> إضافة موعد</h3>
+                <div style="margin-bottom: 16px;">
+                    <label style="font-weight:600; color:#0d2c3b; display:block; margin-bottom:6px; font-size:14px;">👤 اسم المريض</label>
+                    <input type="text" id="appointmentPatientNameInput" placeholder="✏️ اكتب اسم المريض هنا..." style="width:100%; padding:16px 20px; border:2px solid rgba(0,0,0,0.04); border-radius:60px; font-size:15px; background:#f8fbfd; outline:none; font-family:'Cairo',sans-serif; transition:all 0.25s ease;" />
+                </div>
+                <input type="date" id="appointmentDateInput" />
+                <input type="time" id="appointmentTimeInput" />
+                <input type="text" id="appointmentServiceInput" placeholder="🦷 نوع الخدمة (مثال: حشو، تنظيف)" />
+                <div class="btn-row">
+                    <button class="btn-cancel" onclick="closeModal('appointmentModal')">إلغاء</button>
+                    <button class="btn-confirm" id="saveAppointmentBtn">حفظ</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- نافذة إضافة مصروف -->
+        <div class="modal-overlay" id="expenseModal">
+            <div class="modal-box">
+                <h3><i class="fas fa-hand-holding-usd"></i> إضافة مصروف</h3>
+                <input type="text" id="expenseDescInput" placeholder="📝 البيان" />
+                <input type="number" id="expenseAmountInput" placeholder="💰 المبلغ" />
+                <input type="date" id="expenseDateInput" />
+                <div class="btn-row">
+                    <button class="btn-cancel" onclick="closeModal('expenseModal')">إلغاء</button>
+                    <button class="btn-confirm" id="saveExpenseBtn">حفظ</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- نافذة تسجيل مستخدم جديد -->
+        <div class="modal-overlay" id="registerModal">
+            <div class="modal-box">
+                <h3><i class="fas fa-user-plus"></i> تسجيل مستخدم جديد</h3>
+                <input type="text" id="newUsername" placeholder="👤 اسم المستخدم" />
+                <input type="password" id="newPassword" placeholder="🔑 كلمة المرور" />
+                <input type="password" id="newPasswordConfirm" placeholder="✅ تأكيد كلمة المرور" />
+                <div class="btn-row">
+                    <button class="btn-cancel" onclick="closeModal('registerModal')">إلغاء</button>
+                    <button class="btn-confirm" id="registerUserBtn">تسجيل</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- نافذة تغيير كلمة المرور -->
+        <div class="modal-overlay" id="changePassModal">
+            <div class="modal-box">
+                <h3><i class="fas fa-key"></i> تغيير كلمة المرور</h3>
+                <input type="text" id="changeUserInput" placeholder="👤 اسم المستخدم" />
+                <input type="password" id="changeOldPass" placeholder="🔑 كلمة المرور الحالية" />
+                <input type="password" id="changeNewPass" placeholder="🆕 كلمة المرور الجديدة" />
+                <input type="password" id="changeNewPassConfirm" placeholder="✅ تأكيد كلمة المرور الجديدة" />
+                <div class="btn-row">
+                    <button class="btn-cancel" onclick="closeModal('changePassModal')">إلغاء</button>
+                    <button class="btn-confirm" id="changePassBtn">تغيير</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // ============================================================
+        //                      إدارة المستخدمين
+        // ============================================================
+
+        let users = JSON.parse(localStorage.getItem('clinicUsers')) || [];
+
+        if (users.length === 0) {
+            users.push({ username: 'admin', password: 'admin123', role: 'مدير' });
+            localStorage.setItem('clinicUsers', JSON.stringify(users));
+        }
+
+        let currentUser = null;
+
+        // ============================================================
+        //                      بيانات العيادة
+        // ============================================================
+
+        let patients = JSON.parse(localStorage.getItem('clinicPatients')) || [];
+        let appointments = JSON.parse(localStorage.getItem('clinicAppointments')) || [];
+        let expenses = JSON.parse(localStorage.getItem('clinicExpenses')) || [];
+
+        function saveData() {
+            localStorage.setItem('clinicPatients', JSON.stringify(patients));
+            localStorage.setItem('clinicAppointments', JSON.stringify(appointments));
+            localStorage.setItem('clinicExpenses', JSON.stringify(expenses));
+        }
+
+        // ============================================================
+        //                      دوال العرض
+        // ============================================================
+
+        function renderPatients() {
+            const container = document.getElementById('patientsList');
+            if (patients.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-user-plus"></i>
+                        <p>لا يوجد مراجعون</p>
+                        <p class="sub">أضف مراجعاً جديداً من خلال المربع أعلاه</p>
+                    </div>
+                `;
+                return;
+            }
+            let html = '';
+            patients.forEach((p, idx) => {
+                const count = appointments.filter(a => a.patientName === p.name).length;
+                html += `
+                    <div class="card-item">
+                        <div class="icon-wrapper"><i class="fas fa-user-injured"></i></div>
+                        <div class="info">
+                            <h4>${p.name}</h4>
+                            <p>📱 <span class="phone-number">${p.phone || '---'}</span>  •  🎂 ${p.age || '---'}</p>
+                        </div>
+                        <span class="badge-date">${count} موعد</span>
+                        <div class="action-buttons">
+                            <button class="btn-icon edit" onclick="openEditPatient(${idx})" title="تعديل"><i class="fas fa-pen"></i></button>
+                            <button class="btn-icon delete" onclick="deletePatient(${idx})" title="حذف"><i class="fas fa-trash-alt"></i></button>
+                        </div>
+                    </div>
+                `;
+            });
+            container.innerHTML = html;
+        }
+
+        function renderAppointments() {
+            const container = document.getElementById('appointmentsList');
+            if (appointments.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-calendar-day"></i>
+                        <p>لا توجد مواعيد</p>
+                        <p class="sub">أضف موعداً جديداً من قسم الإضافة</p>
+                    </div>
+                `;
+                document.getElementById('lastAppointmentDisplay').textContent = 'لا يوجد';
+                return;
+            }
+            let html = '';
+            appointments.forEach((a, idx) => {
+                html += `
+                    <div class="card-item">
+                        <div class="icon-wrapper"><i class="fas fa-calendar-check"></i></div>
+                        <div class="info">
+                            <h4>${a.patientName}</h4>
+                            <p>📅 ${a.date}  ⏰ ${a.time}  •  🦷 ${a.service || 'فحص'}</p>
+                        </div>
+                        <span class="badge-date">${a.date}</span>
+                    </div>
+                `;
+            });
+            container.innerHTML = html;
+            const last = appointments[appointments.length - 1];
+            if (last) {
+                document.getElementById('lastAppointmentDisplay').textContent = `${last.patientName} - ${last.date}`;
+            }
+        }
+
+        function renderExpenses() {
+            const container = document.getElementById('expensesList');
+            if (expenses.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-coins"></i>
+                        <p>لا توجد مصروفات</p>
+                        <p class="sub">أضف مصروفاً جديداً من خلال الزر أعلاه</p>
+                    </div>
+                `;
+                return;
+            }
+            let html = '';
+            let total = 0;
+            expenses.forEach(e => {
+                total += Number(e.amount);
+                html += `
+                    <div class="expense-row">
+                        <span><i class="fas fa-receipt"></i> ${e.desc} <span style="font-weight:400;color:#5b7b8a;font-size:13px;">${e.date || ''}</span></span>
+                        <span>${Number(e.amount).toLocaleString()} د.ع</span>
+                    </div>
+                `;
+            });
+            html += `
+                <div class="expense-row expense-total">
+                    <span><i class="fas fa-calculator"></i> <strong>الإجمالي</strong></span>
+                    <span><strong>${total.toLocaleString()} د.ع</strong></span>
+                </div>
+            `;
+            container.innerHTML = html;
+        }
+
+        // ============================================================
+        //                      دوال الإضافة والحذف والتعديل
+        // ============================================================
+
+        function addPatient(name, phone, age) {
+            if (!name.trim()) {
+                alert('⚠️ يرجى إدخال اسم المريض');
+                return false;
+            }
+            if (patients.find(p => p.name === name.trim())) {
+                alert('⚠️ هذا المريض موجود بالفعل!');
+                return false;
+            }
+            patients.push({ name: name.trim(), phone: phone.trim(), age: age.trim() });
+            saveData();
+            renderPatients();
+            return true;
+        }
+
+        function deletePatient(index) {
+            if (confirm(`⚠️ هل أنت متأكد من حذف المريض "${patients[index].name}"؟`)) {
+                patients.splice(index, 1);
+                saveData();
+                renderPatients();
+                renderAppointments();
+            }
+        }
+
+        function openEditPatient(index) {
+            const patient = patients[index];
+            document.getElementById('editPatientIndex').value = index;
+            document.getElementById('editPatientName').value = patient.name;
+            document.getElementById('editPatientPhone').value = patient.phone || '';
+            document.getElementById('editPatientAge').value = patient.age || '';
+            openModal('editPatientModal');
+        }
+
+        function saveEditPatient() {
+            const index = parseInt(document.getElementById('editPatientIndex').value);
+            const name = document.getElementById('editPatientName').value.trim();
+            const phone = document.getElementById('editPatientPhone').value.trim();
+            const age = document.getElementById('editPatientAge').value.trim();
+
+            if (!name) {
+                alert('⚠️ يرجى إدخال اسم المريض');
+                return;
+            }
+
+            patients[index] = { name, phone, age };
+            saveData();
+            renderPatients();
+            renderAppointments();
+            closeModal('editPatientModal');
+            alert('✅ تم تحديث بيانات المريض بنجاح!');
+        }
+
+        function addAppointment(patientName, date, time, service) {
+            if (!patientName.trim() || !date || !time) {
+                alert('⚠️ يرجى ملء جميع الحقول');
+                return false;
+            }
+
+            if (!patients.find(p => p.name === patientName.trim())) {
+                patients.push({ name: patientName.trim(), phone: '', age: '' });
+                saveData();
+                renderPatients();
+            }
+
+            appointments.push({ patientName: patientName.trim(), date, time, service: service.trim() || 'فحص' });
+            saveData();
+            renderAppointments();
+            return true;
+        }
+
+        function addExpense(desc, amount, date) {
+            if (!desc.trim() || !amount || amount <= 0) {
+                alert('⚠️ يرجى إدخال بيان صحيح والمبلغ');
+                return false;
+            }
+            expenses.push({ desc: desc.trim(), amount: Number(amount), date: date || new Date().toLocaleDateString('ar-EG') });
+            saveData();
+            renderExpenses();
+            return true;
+        }
+
+        // ============================================================
+        //                      دوال المستخدمين
+        // ============================================================
+
+        function registerUser(username, password, confirm) {
+            if (!username.trim()) { alert('⚠️ يرجى إدخال اسم المستخدم'); return false; }
+            if (password.length < 4) { alert('⚠️ كلمة المرور يجب أن تكون 4 أحرف على الأقل'); return false; }
+            if (password !== confirm) { alert('⚠️ كلمة المرور غير متطابقة'); return false; }
+            if (users.find(u => u.username === username.trim())) {
+                alert('⚠️ اسم المستخدم موجود بالفعل');
+                return false;
+            }
+            users.push({ username: username.trim(), password: password, role: 'مستخدم' });
+            localStorage.setItem('clinicUsers', JSON.stringify(users));
+            alert('✅ تم تسجيل المستخدم بنجاح!');
+            return true;
+        }
+
+        function changePassword(username, oldPass, newPass, confirm) {
+            if (!username.trim()) { alert('⚠️ يرجى إدخال اسم المستخدم'); return false; }
+            const user = users.find(u => u.username === username.trim());
+            if (!user) { alert('⚠️ المستخدم غير موجود'); return false; }
+            if (user.password !== oldPass) { alert('⚠️ كلمة المرور الحالية غير صحيحة'); return false; }
+            if (newPass.length < 4) { alert('⚠️ كلمة المرور الجديدة يجب أن تكون 4 أحرف على الأقل'); return false; }
+            if (newPass !== confirm) { alert('⚠️ كلمة المرور غير متطابقة'); return false; }
+            user.password = newPass;
+            localStorage.setItem('clinicUsers', JSON.stringify(users));
+            alert('✅ تم تغيير كلمة المرور بنجاح!');
+            return true;
+        }
+
+        function loginUser(username, password) {
+            const user = users.find(u => u.username === username.trim() && u.password === password);
+            if (user) {
+                currentUser = user;
+                document.getElementById('currentUserName').textContent = user.username;
+                document.getElementById('currentUserBadge').style.display = 'inline-flex';
+                return true;
+            }
+            return false;
+        }
+
+        // ============================================================
+        //                      دوال النوافذ المنبثقة
+        // ============================================================
+
+        function openModal(id) {
+            document.getElementById(id).classList.add('show');
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).classList.remove('show');
+        }
+
+        document.querySelectorAll('.modal-overlay').forEach(el => {
+            el.addEventListener('click', function(e) {
+                if (e.target === this) this.classList.remove('show');
+            });
+        });
+
+        // ============================================================
+        //                      ربط الأحداث
+        // ============================================================
+
+        // ===== تسجيل الدخول =====
+        const loginBtn = document.getElementById('loginBtn');
+        const usernameInput = document.getElementById('usernameInput');
+        const passwordInput = document.getElementById('passwordInput');
+        const loginError = document.getElementById('loginError');
+        const loginSuccess = document.getElementById('loginSuccess');
+        const loginPage = document.getElementById('loginPage');
+        const dashboardPage = document.getElementById('dashboardPage');
+        const bottomNav = document.getElementById('bottomNav');
+
+        function handleLogin() {
+            const user = usernameInput.value.trim();
+            const pass = passwordInput.value.trim();
+
+            if (loginUser(user, pass)) {
+                loginError.style.display = 'none';
+                loginSuccess.style.display = 'block';
+                setTimeout(() => {
+                    loginSuccess.style.display = 'none';
+                    loginPage.classList.remove('active');
+                    dashboardPage.classList.add('active');
+                    bottomNav.style.display = 'flex';
+                    renderPatients();
+                    renderAppointments();
+                    renderExpenses();
+                    showSection('sectionAppointment');
+                }, 500);
+            } else {
+                loginError.style.display = 'block';
+                loginSuccess.style.display = 'none';
+                setTimeout(() => loginError.style.display = 'none', 3000);
+            }
+        }
+
+        loginBtn.addEventListener('click', handleLogin);
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Enter' && loginPage.classList.contains('active')) handleLogin();
+        });
+
+        // ===== تسجيل الخروج =====
+        document.getElementById('logoutNavBtn').addEventListener('click', function() {
+            currentUser = null;
+            dashboardPage.classList.remove('active');
+            loginPage.classList.add('active');
+            bottomNav.style.display = 'none';
+            document.getElementById('currentUserBadge').style.display = 'none';
+            usernameInput.value = '';
+            passwordInput.value = '';
+            loginError.style.display = 'none';
+            loginSuccess.style.display = 'none';
+        });
+
+        // ===== التنقل بين الأقسام =====
+        function showSection(sectionId) {
+            document.querySelectorAll('#dashboardPage .page-section').forEach(sec => sec.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+            document.querySelectorAll('.bottom-nav button[data-section]').forEach(btn => {
+                btn.classList.remove('active-nav');
+                if (btn.dataset.section === sectionId) btn.classList.add('active-nav');
+            });
+        }
+
+        document.querySelectorAll('.bottom-nav button[data-section]').forEach(btn => {
+            btn.addEventListener('click', function() {
+                showSection(this.dataset.section);
+            });
+        });
+
+        // ===== إضافة مراجع سريع (قسم الإضافة) =====
+        document.getElementById('quickAddPatientBtn').addEventListener('click', function() {
+            const name = document.getElementById('quickPatientName').value;
+            if (addPatient(name, '', '')) {
+                document.getElementById('quickPatientName').value = '';
+                document.getElementById('appointmentPatientNameInput').value = name;
+                openModal('appointmentModal');
+            }
+        });
+
+        document.getElementById('quickPatientName').addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') document.getElementById('quickAddPatientBtn').click();
+        });
+
+        // ===== إضافة مراجع سريع (قسم المراجعين) =====
+        document.getElementById('quickAddPatientBtn2').addEventListener('click', function() {
+            const name = document.getElementById('quickPatientName2').value;
+            const phone = document.getElementById('quickPatientPhone').value;
+            if (addPatient(name, phone, '')) {
+                document.getElementById('quickPatientName2').value = '';
+                document.getElementById('quickPatientPhone').value = '';
+            }
+        });
+
+        document.getElementById('quickPatientName2').addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') document.getElementById('quickAddPatientBtn2').click();
+        });
+
+        document.getElementById('quickPatientPhone').addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') document.getElementById('quickAddPatientBtn2').click();
+        });
+
+        // ===== فتح نافذة الموعد =====
+        document.getElementById('openAppointmentModal').addEventListener('click', function() {
+            document.getElementById('appointmentPatientNameInput').value = '';
+            document.getElementById('appointmentDateInput').value = '';
+            document.getElementById('appointmentTimeInput').value = '';
+            document.getElementById('appointmentServiceInput').value = '';
+            openModal('appointmentModal');
+        });
+
+        // ===== حفظ موعد =====
+        document.getElementById('saveAppointmentBtn').addEventListener('click', function() {
+            const name = document.getElementById('appointmentPatientNameInput').value;
+            const date = document.getElementById('appointmentDateInput').value;
+            const time = document.getElementById('appointmentTimeInput').value;
+            const service = document.getElementById('appointmentServiceInput').value;
+            if (addAppointment(name, date, time, service)) {
+                closeModal('appointmentModal');
+                document.getElementById('appointmentPatientNameInput').value = '';
+                document.getElementById('appointmentDateInput').value = '';
+                document.getElementById('appointmentTimeInput').value = '';
+                document.getElementById('appointmentServiceInput').value = '';
+                renderPatients();
+            }
+        });
+
+        // ===== حفظ مراجع من النافذة =====
+        document.getElementById('savePatientBtn').addEventListener('click', function() {
+            const name = document.getElementById('patientNameInput').value;
+            const phone = document.getElementById('patientPhoneInput').value;
+            const age = document.getElementById('patientAgeInput').value;
+            if (addPatient(name, phone, age)) {
+                closeModal('patientModal');
+                document.getElementById('patientNameInput').value = '';
+                document.getElementById('patientPhoneInput').value = '';
+                document.getElementById('patientAgeInput').value = '';
+            }
+        });
+
+        // ===== حفظ تعديل المريض =====
+        document.getElementById('saveEditPatientBtn').addEventListener('click', saveEditPatient);
+
+        // ===== حفظ مصروف =====
+        document.getElementById('saveExpenseBtn').addEventListener('click', function() {
+            const desc = document.getElementById('expenseDescInput').value;
+            const amount = document.getElementById('expenseAmountInput').value;
+            const date = document.getElementById('expenseDateInput').value;
+            if (addExpense(desc, amount, date)) {
+                closeModal('expenseModal');
+                document.getElementById('expenseDescInput').value = '';
+                document.getElementById('expenseAmountInput').value = '';
+                document.getElementById('expenseDateInput').value = '';
+            }
+        });
+
+        document.getElementById('openExpenseModal').addEventListener('click', function() {
+            document.getElementById('expenseDescInput').value = '';
+            document.getElementById('expenseAmountInput').value = '';
+            document.getElementById('expenseDateInput').value = '';
+            openModal('expenseModal');
+        });
+
+        // ===== تسجيل مستخدم جديد =====
+        document.getElementById('showRegisterBtn').addEventListener('click', () => openModal('registerModal'));
+
+        document.getElementById('registerUserBtn').addEventListener('click', function() {
+            const username = document.getElementById('newUsername').value;
+            const pass = document.getElementById('newPassword').value;
+            const confirm = document.getElementById('newPasswordConfirm').value;
+            if (registerUser(username, pass, confirm)) {
+                closeModal('registerModal');
+                document.getElementById('newUsername').value = '';
+                document.getElementById('newPassword').value = '';
+                document.getElementById('newPasswordConfirm').value = '';
+            }
+        });
+
+        // ===== تغيير كلمة المرور =====
+        document.getElementById('showChangePassBtn').addEventListener('click', () => openModal('changePassModal'));
+
+        document.getElementById('changePassBtn').addEventListener('click', function() {
+            const username = document.getElementById('changeUserInput').value;
+            const oldPass = document.getElementById('changeOldPass').value;
+            const newPass = document.getElementById('changeNewPass').value;
+            const confirm = document.getElementById('changeNewPassConfirm').value;
+            if (changePassword(username, oldPass, newPass, confirm)) {
+                closeModal('changePassModal');
+                document.getElementById('changeUserInput').value = '';
+                document.getElementById('changeOldPass').value = '';
+                document.getElementById('changeNewPass').value = '';
+                document.getElementById('changeNewPassConfirm').value = '';
+            }
+        });
+
+        // ============================================================
+        //                      بدء التشغيل
+        // ============================================================
+
+        loginPage.classList.add('active');
+        dashboardPage.classList.remove('active');
+        bottomNav.style.display = 'none';
+        renderPatients();
+        renderAppointments();
+        renderExpenses();
+
+        console.log('✅ نظام إدارة العيادة جاهز للاستخدام');
+        console.log('👤 المستخدم الافتراضي: admin');
+        console.log('🔑 كلمة المرور: admin123');
+    </script>
+</body>
+</html>
